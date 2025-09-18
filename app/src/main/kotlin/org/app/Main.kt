@@ -3,7 +3,7 @@
 import org.tasks.*
 
 fun main() {
-    val tasks = listOf<Task>(EulerProblem, MarsianianVolleyballProblem)
+    val tasks = listOf<Task>(EulerProblem, MarsianianVolleyballProblem, FibonacciRabbitsProblem)
 
     while (true) {
         println()
