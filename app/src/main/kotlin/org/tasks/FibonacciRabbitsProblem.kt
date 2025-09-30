@@ -6,7 +6,7 @@ import java.util.Locale
 object FibonacciRabbitsProblem : Task {
     override val name: String = "Mortal Fibonacci Rabbits"
 
-    fun run() {
+    override fun run() {
         val (n, m) = readLine()!!.split(" ").map { it.toInt() }
 
         val rabbits = LongArray(m)
@@ -24,5 +24,4 @@ object FibonacciRabbitsProblem : Task {
         val formatter = NumberFormat.getInstance(Locale.US)
         println(formatter.format(result))
     }
-
 }
