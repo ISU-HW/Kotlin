@@ -16,20 +16,21 @@ object FibonacciRabbitsProblem : Task {
             return
         }
         val (n, m) = parts
+
+        val mortalRabbits: (Int, Int) -> Long = { months, lifespan ->
+            val rabbits = LongArray(lifespan)
+            rabbits[0] = 1L
+            for (month in 2..months) {
+                val newborn = rabbits.drop(1).sum()
+                for (i in lifespan - 1 downTo 1) {
+                    rabbits[i] = rabbits[i - 1]
+                }
+                rabbits[0] = newborn
+            }
+            rabbits.sum()
+        }
+
         val result = mortalRabbits(n, m)
         println(result)
-    }
-
-    private fun mortalRabbits(n: Int, m: Int): Long {
-        val rabbits = LongArray(m)
-        rabbits[0] = 1L
-        for (month in 2..n) {
-            val newborn = rabbits.drop(1).sum()
-            for (i in m - 1 downTo 1) {
-                rabbits[i] = rabbits[i - 1]
-            }
-            rabbits[0] = newborn
-        }
-        return rabbits.sum()
     }
 }
