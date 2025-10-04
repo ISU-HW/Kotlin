@@ -4,18 +4,21 @@ object EulerProblem : Task {
     override val name = "max period 1/d"
 
     override fun run() {
-        fun periodLength(d: Int): Int {
+        val periodLength: (Int) -> Int = { d ->
             var n = d
             while (n % 2 == 0) n /= 2
             while (n % 5 == 0) n /= 5
-            if (n == 1) return 0
-            var k = 1
-            var t = 10 % n
-            while (t != 1) {
-                t = (t * 10) % n
-                k++
+            if (n == 1) {
+                0
+            } else {
+                var k = 1
+                var t = 10 % n
+                while (t != 1) {
+                    t = (t * 10) % n
+                    k++
+                }
+                k
             }
-            return k
         }
 
         var maxD = 0
