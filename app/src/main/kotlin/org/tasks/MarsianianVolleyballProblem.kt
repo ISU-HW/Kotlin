@@ -1,6 +1,5 @@
 ﻿package org.tasks
 
-import kotlin.math.abs
 import kotlin.math.max
 
 object MarsianianVolleyballProblem : Task {
@@ -26,8 +25,6 @@ object MarsianianVolleyballProblem : Task {
     }
 
     private fun minimalRallies(k: Int, x: Int, y: Int): Int {
-        if ((x >= k || y >= k) && abs(x - y) >= 2) return 0
-
         val team1ScoreNeeded = if (x >= k) 0 else k - x
         val team1DiffNeeded = if (x - y >= 2) 0 else 2 - (x - y)
         val team1Rallies = max(team1ScoreNeeded, team1DiffNeeded)
